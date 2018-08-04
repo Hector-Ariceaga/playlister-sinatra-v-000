@@ -38,8 +38,9 @@ class SongsController < ApplicationController
   end
 
   get 'songs/:slug/edit' do
-    @current_song = Song.find_by_slug(params[:slug])
     binding.pry
+    @current_song = Song.find_by_slug(params[:slug])
+    
     erb :'songs/edit'
   end
 
