@@ -1,3 +1,4 @@
+require 'pry'
 class SongsController < ApplicationController
   use Rack::Flash
 
@@ -38,11 +39,12 @@ class SongsController < ApplicationController
 
   get 'songs/:slug/edit' do
     @current_song = Song.find_by_slug(params[:slug])
+    binding.pry
     erb :'songs/edit'
   end
 
   patch 'songs/:slug' do
-
+  
     flash[:message] = "Successfully edited a song."
   end
 
